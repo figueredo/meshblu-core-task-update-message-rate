@@ -4,8 +4,6 @@
 [![devDependency Status](http://img.shields.io/david/dev/octoblu/meshblu-core-task-update-message-rate.svg?style=flat)](https://david-dm.org/octoblu/meshblu-core-task-update-message-rate#info=devDependencies)
 [![Build Status](http://img.shields.io/travis/octoblu/meshblu-core-task-update-message-rate.svg?style=flat&branch=master)](https://travis-ci.org/octoblu/meshblu-core-task-update-message-rate)
 
-[![NPM](https://nodei.co/npm/meshblu-core-task-update-message-rate.svg?style=flat)](https://npmjs.org/package/meshblu-core-task-update-message-rate)
-
 ## License
 
 The MIT License (MIT)
