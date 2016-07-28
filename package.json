@@ -29,11 +29,13 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "coffee-coverage": "^1.0.1",
+    "fakeredis": "^1.0.3",
     "istanbul": "^0.4.4",
     "mocha": "^2.5.3",
     "mocha-istanbul": "^0.3.0",
     "sinon": "^1.17.5",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "uuid": "^2.0.2"
   },
   "peerDependencies": {},
   "engines": {

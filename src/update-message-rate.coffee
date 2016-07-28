@@ -3,6 +3,8 @@ http = require 'http'
 
 class UpdateMessageRate
   constructor: (options={}) ->
+    {@cache, @Date} = options
+    @Date ?= Date
 
   _doCallback: (request, code, callback) =>
     response =
@@ -13,9 +15,17 @@ class UpdateMessageRate
     callback null, response
 
   do: (request, callback) =>
-    {uuid, messageType, options} = request.metadata
-    message = JSON.parse request.rawData
+    {uuid} = request.metadata
+    minuteKey = @getMinuteKey()
+    @cache.multi()
+      .hincrby minuteKey, uuid, 1
+      .expire minuteKey, 60*5
+      .exec =>
+        @_doCallback request, 204, callback
 
-    return @_doCallback request, 204, callback
+  getMinuteKey: ()=>
+    time = @Date.now()
+    @startMinute = Math.floor(time / (1000*60))
+    return "message-rate:minute-#{@startMinute}"
 
 module.exports = UpdateMessageRate
