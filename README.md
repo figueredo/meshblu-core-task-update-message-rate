@@ -1,15 +1,15 @@
-# generator-meshblu-core-task
+# meshblu-core-task-update-message-rate
 
-[![Dependency status](http://img.shields.io/david/octoblu/generator-meshblu-core-task.svg?style=flat)](https://david-dm.org/octoblu/generator-meshblu-core-task)
-[![devDependency Status](http://img.shields.io/david/dev/octoblu/generator-meshblu-core-task.svg?style=flat)](https://david-dm.org/octoblu/generator-meshblu-core-task#info=devDependencies)
-[![Build Status](http://img.shields.io/travis/octoblu/generator-meshblu-core-task.svg?style=flat&branch=master)](https://travis-ci.org/octoblu/generator-meshblu-core-task)
+[![Dependency status](http://img.shields.io/david/octoblu/meshblu-core-task-update-message-rate.svg?style=flat)](https://david-dm.org/octoblu/meshblu-core-task-update-message-rate)
+[![devDependency Status](http://img.shields.io/david/dev/octoblu/meshblu-core-task-update-message-rate.svg?style=flat)](https://david-dm.org/octoblu/meshblu-core-task-update-message-rate#info=devDependencies)
+[![Build Status](http://img.shields.io/travis/octoblu/meshblu-core-task-update-message-rate.svg?style=flat&branch=master)](https://travis-ci.org/octoblu/meshblu-core-task-update-message-rate)
 
-[![NPM](https://nodei.co/npm/generator-meshblu-core-task.svg?style=flat)](https://npmjs.org/package/generator-meshblu-core-task)
+[![NPM](https://nodei.co/npm/meshblu-core-task-update-message-rate.svg?style=flat)](https://npmjs.org/package/meshblu-core-task-update-message-rate)
 
 ## Installing
 
 ```bash
-$ npm install generator-meshblu-core-task
+$ npm install meshblu-core-task-update-message-rate
 ```
 
 ### Usage
