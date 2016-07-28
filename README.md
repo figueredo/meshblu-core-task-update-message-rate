@@ -6,18 +6,6 @@
 
 [![NPM](https://nodei.co/npm/meshblu-core-task-update-message-rate.svg?style=flat)](https://npmjs.org/package/meshblu-core-task-update-message-rate)
 
-## Installing
-
-```bash
-$ npm install meshblu-core-task-update-message-rate
-```
-
-### Usage
-
-```javascript
-console.log('hello world!');
-```
-
 ## License
 
 The MIT License (MIT)
