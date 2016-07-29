@@ -18,8 +18,9 @@ class UpdateMessageRate
     uuid = request?.metadata?.auth?.as
     uuid ?= request?.metadata?.auth?.uuid
     minuteKey = @getMinuteKey()
-    @cache.hincrby minuteKey, uuid, 1
-    @cache.expire minuteKey, 60*5
+    @cache.hincrby minuteKey, uuid, 1, (error) =>
+      return if error?
+      @cache.expire minuteKey, 60*5
     @_doCallback request, 204, callback
 
   getMinuteKey: ()=>
