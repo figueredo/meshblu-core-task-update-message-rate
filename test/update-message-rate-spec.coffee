@@ -15,7 +15,8 @@ describe 'UpdateMessageRate', ->
     @request =
       metadata:
         responseId: 'its-electric'
-        uuid: 'electric-eels'
+        auth:
+          uuid: 'electric-eels'
         messageType: 'received'
         options: {}
       rawData: '{}'
@@ -55,7 +56,7 @@ describe 'UpdateMessageRate', ->
             done()
         , 100
 
-    context 'when given another message', ->
+    context 'when given the message again', ->
       before (done) ->
         @sut.do @request, (error, @response) => done error
 
@@ -63,5 +64,26 @@ describe 'UpdateMessageRate', ->
         setTimeout =>
           @client.hget @sut.getMinuteKey(), 'electric-eels', (error, result) ->
             expect(result).to.equal 2
+            done()
+        , 100
+
+    context 'when given another message with an "as" in auth', ->
+      before (done) ->
+        @request =
+          metadata:
+            responseId: 'its-electric'
+            auth:
+              uuid: 'atomic-clams'
+              as: 'electric-eels'
+            messageType: 'received'
+            options: {}
+          rawData: '{}'
+
+        @sut.do @request, (error, @response) => done error
+
+      it 'should have a value of "3" for that uuid and minute', (done) ->
+        setTimeout =>
+          @client.hget @sut.getMinuteKey(), 'electric-eels', (error, result) ->
+            expect(result).to.equal 3
             done()
         , 100

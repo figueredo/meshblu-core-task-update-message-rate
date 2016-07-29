@@ -15,7 +15,8 @@ class UpdateMessageRate
     callback null, response
 
   do: (request, callback) =>
-    {uuid} = request.metadata
+    uuid = request?.metadata?.auth?.as
+    uuid ?= request?.metadata?.auth?.uuid
     minuteKey = @getMinuteKey()
     @cache.hincrby minuteKey, uuid, 1
     @cache.expire minuteKey, 60*5
