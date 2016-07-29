@@ -17,11 +17,9 @@ class UpdateMessageRate
   do: (request, callback) =>
     {uuid} = request.metadata
     minuteKey = @getMinuteKey()
-    @cache.multi()
-      .hincrby minuteKey, uuid, 1
-      .expire minuteKey, 60*5
-      .exec =>
-        @_doCallback request, 204, callback
+    @cache.hincrby minuteKey, uuid, 1
+    @cache.expire minuteKey, 60*5
+    @_doCallback request, 204, callback
 
   getMinuteKey: ()=>
     time = @Date.now()
