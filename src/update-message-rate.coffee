@@ -19,11 +19,12 @@ class UpdateMessageRate
     uuid ?= request?.metadata?.auth?.uuid
     minuteKey = @getMinuteKey()
     @cache.hincrby minuteKey, uuid, 1, (error) =>
-      return if error?
-      @cache.expire minuteKey, 60*5
-    @_doCallback request, 204, callback
+      return callback error if error?
+      @cache.expire minuteKey, 60*5, (error) =>
+        return callback error if error?
+        @_doCallback request, 204, callback
 
-  getMinuteKey: ()=>
+  getMinuteKey: =>
     time = @Date.now()
     @startMinute = Math.floor(time / (1000*60))
     return "message-rate:minute-#{@startMinute}"
